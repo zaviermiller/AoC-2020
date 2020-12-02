@@ -1,0 +1,5 @@
+github.com/joho/dotenv v1.0.2 h1:yiZp49oImYr1q/n0x55vqvj7D2ShYW5199tlh+v8yC8=
+github.com/joho/dotenv v2.2.0+incompatible h1:8xL0SRBf5L+fG/f+odAIrUbuZ32Ab60P5Vs2krwH+Hw=
+github.com/joho/dotenv v2.2.0+incompatible/go.mod h1:Fx12nBT8vzHuSnKi466wSDcZPVrMdE8+0e91lBaPQPk=
+github.com/joho/godotenv v1.3.0 h1:Zjp+RcGpHhGlrMbJzXTrZZPrWj+1vfm90La1wgB6Bhc=
+github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
