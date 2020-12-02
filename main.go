@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/zaviermiller/advent-of-code-2020/day1"
+	"github.com/zaviermiller/advent-of-code-2020/day2"
 
 	"github.com/joho/godotenv"
 )
@@ -21,7 +22,7 @@ type Day interface {
 func main() {
 	// GENERATED DAY MAP
 	var DAYS []Day
-	DAYS = append(DAYS, &day1.Day1{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	flag.Parse()
 
@@ -60,7 +61,7 @@ func autogen() {
 
 			defer file.Close()
 
-			_, err = file.WriteString(fmt.Sprintf("package day%d\nimport (\n    \"fmt\"\n)\n\ntype Day%d struct {\n}\n\nfunc (d Day%d) Task1(string input) interface{} {\n    return input\n}\n\nfunc (d Day%d) Task2(string input) interface{} {\n	return input\n}\n", i, i, i, i))
+			_, err = file.WriteString(fmt.Sprintf("package day%d\nimport (\n\n)\n\ntype Day%d struct {\n}\n\nfunc (d Day%d) Task1(input string) interface{} {\n    return input\n}\n\nfunc (d Day%d) Task2(input string) interface{} {\n	return input\n}\n", i, i, i, i))
 			check(err)
 
 			fmt.Println(fmt.Sprintf("\nGenerated day%d\n",i))
