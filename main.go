@@ -10,6 +10,7 @@ import (
 
 	"github.com/zaviermiller/advent-of-code-2020/day1"
 	"github.com/zaviermiller/advent-of-code-2020/day2"
+	"github.com/zaviermiller/advent-of-code-2020/day3"
 
 	"github.com/joho/godotenv"
 )
@@ -20,11 +21,14 @@ type Day interface {
 }
 
 func main() {
-	// GENERATED DAY MAP
 	var DAYS []Day
-	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	flag.Parse()
+
+	fmt.Println("\nAttempting to generate new files...")
+	autogen() // autogenerate new day files
+	fmt.Println("Done\n")
 
 	year, _, day := time.Now().Date()
 	if (year < 2021 || day > 25) && (*dayFlag > day || *dayFlag < 1) {
@@ -33,12 +37,11 @@ func main() {
 	}
 
 	input := getInputOnDay(*dayFlag)
-	autogen() // autogenerate new day files
 	
 	dayObj := DAYS[*dayFlag - 1]
 
-	fmt.Println("TASK 1 ANSWER:\n" + dayObj.Task1(input).(string))
-	fmt.Println("TASK 2 ANSWER:\n" + dayObj.Task2(input).(string))
+	fmt.Println("TASK 1 ANSWER:\n\033[1m" + dayObj.Task1(input).(string))
+	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[1m" + dayObj.Task2(input).(string) + "\033[0m\n")
 	
 }
 
