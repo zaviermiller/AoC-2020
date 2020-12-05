@@ -11,6 +11,7 @@ import (
 	"github.com/zaviermiller/advent-of-code-2020/day1"
 	"github.com/zaviermiller/advent-of-code-2020/day2"
 	"github.com/zaviermiller/advent-of-code-2020/day3"
+	"github.com/zaviermiller/advent-of-code-2020/day4"
 
 	"github.com/joho/godotenv"
 )
@@ -22,7 +23,7 @@ type Day interface {
 
 func main() {
 	var DAYS []Day
-	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	flag.Parse()
 
