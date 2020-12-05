@@ -4,6 +4,8 @@ import (
 	"strings"
 )
 
+var SearchString string = "// AUTO GENERATED --"
+
 func InputToSlice(input string) []string {
 	arr := strings.Split(input, "\n")
 	return arr[:len(arr) - 1]
