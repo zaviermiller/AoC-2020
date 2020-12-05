@@ -12,11 +12,11 @@ import (
 	"io"
 
 	// AUTO GENERATED -- imports
-    "github.com/zaviermiller/advent-of-code-2020/day1"
-    "github.com/zaviermiller/advent-of-code-2020/day2"
-    "github.com/zaviermiller/advent-of-code-2020/day3"
-    "github.com/zaviermiller/advent-of-code-2020/day4"
-    "github.com/zaviermiller/advent-of-code-2020/day5"
+	"github.com/zaviermiller/advent-of-code-2020/day1"
+	"github.com/zaviermiller/advent-of-code-2020/day2"
+	"github.com/zaviermiller/advent-of-code-2020/day3"
+	"github.com/zaviermiller/advent-of-code-2020/day4"
+	"github.com/zaviermiller/advent-of-code-2020/day5"
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 
 	"github.com/joho/godotenv"
@@ -32,7 +32,7 @@ var loc, _ = time.LoadLocation("America/New_York")
 func main() {
 	var DAYS []Day
 	// AUTO GENERATED -- day_struct
-    DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	inputFlag := flag.String("inp", "", "custom input to tasks")
 	flag.Parse()
@@ -79,7 +79,7 @@ func autogen() {
 
 	for {
 		line, err := mainReader.ReadString('\n')
-		
+
 								// LMFAOOOOOOO cant have real search string in file
 		if strings.Contains(line, u.SearchString) {
 			strippedLine := strings.Replace(strings.TrimSpace(line), " ", "", -1)
@@ -88,10 +88,10 @@ func autogen() {
 			switch part {
 			case "imports":
 				for i := 1; i <= day; i++ {
-					line += fmt.Sprintf("    \"github.com/zaviermiller/advent-of-code-2020/day%d\"\n",i)
+					line += fmt.Sprintf("\t\"github.com/zaviermiller/advent-of-code-2020/day%d\"\n",i)
 				}
 			case "day_struct":
-				line += "    DAYS = append(DAYS, "
+				line += "\tDAYS = append(DAYS, "
 				for i := 1; i <= day; i++ {
 					line += fmt.Sprintf("&day%d.Day%d{}",i,i)
 					if i != day {
