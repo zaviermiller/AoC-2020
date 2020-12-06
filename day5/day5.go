@@ -11,7 +11,7 @@ import (
 type Day5 struct {
 }
 
-func (d Day5) Task1(input string) interface{} {
+func (d Day5) Task1(input string) string {
 	inpArr := u.InputToSlice(input)
 	highestId := 0
 
@@ -38,7 +38,7 @@ func intPower(x int, y int) int {
 	return int(math.Pow(float64(x), float64(y)))
 }
 
-func (d Day5) Task2(input string) interface{} {
+func (d Day5) Task2(input string) string {
 	inpArr := u.InputToSlice(input)
 	var strs [128][8]string
 
@@ -66,5 +66,5 @@ func (d Day5) Task2(input string) interface{} {
 			}
 		}
 	}
-	return -1
+	return "-1"
 }

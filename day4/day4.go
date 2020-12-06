@@ -10,7 +10,7 @@ import (
 type Day4 struct {
 }
 
-func (d Day4) Task1(input string) interface{} {
+func (d Day4) Task1(input string) string {
 	inpArr := u.BatchInputTo2DSlice(input)
 	validCount := 0
 
@@ -119,7 +119,7 @@ func checkValidity(val string, desc string) bool {
 	return false
 }
 
-func (d Day4) Task2(input string) interface{} {
+func (d Day4) Task2(input string) string {
 	inpArr := u.BatchInputTo2DSlice(input)
 	validCount := 0
 

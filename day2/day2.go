@@ -10,7 +10,7 @@ import (
 type Day2 struct {
 }
 
-func (d Day2) Task1(input string) interface{} {
+func (d Day2) Task1(input string) string {
     inpArr := u.InputToSlice(input)
     // newArr := []string{"1-3 a: abcde","1-3 b: cdefg", "2-9 c: ccccccccc"}
     counter := 0
@@ -49,7 +49,7 @@ func checkValidity(num1 int, num2 int, search rune, password string) bool {
     return false
 }
 
-func (d Day2) Task2(input string) interface{} {
+func (d Day2) Task2(input string) string {
     inpArr := u.InputToSlice(input)
     counter := 0
 

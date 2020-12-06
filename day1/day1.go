@@ -10,7 +10,7 @@ import (
 type Day1 struct {
 }
 
-func (d Day1) Task1(input string) interface{} {
+func (d Day1) Task1(input string) string {
 	inpArr := u.InputToSlice(input)
 	intArr := make([]int, len(inpArr))
 	for i, item := range inpArr {
@@ -35,7 +35,7 @@ func findSum2020(arr []int) int {
 }
 
 // woah i can even brute force this one :o
-func (d Day1) Task2(input string) interface{} {
+func (d Day1) Task2(input string) string {
 	inpArr := u.InputToSlice(input)
 	intArr := make([]int, len(inpArr))
 	for i, item := range inpArr {

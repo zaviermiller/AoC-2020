@@ -18,8 +18,8 @@ import (
 )
 
 type Day interface {
-	Task1(string) interface{}
-	Task2(string) interface{}
+	Task1(string) string
+	Task2(string) string
 }
 
 var loc, _ = time.LoadLocation("America/New_York")
@@ -51,8 +51,8 @@ func main() {
 	
 	dayObj := DAYS[*dayFlag - 1]
 
-	fmt.Println("TASK 1 ANSWER:\n\033[1m" + dayObj.Task1(input).(string))
-	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[1m" + dayObj.Task2(input).(string) + "\033[0m\n")
+	fmt.Println("TASK 1 ANSWER:\n\033[1m" + dayObj.Task1(input))
+	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[1m" + dayObj.Task2(input) + "\033[0m\n")
 	
 }
 
@@ -121,7 +121,7 @@ func autogen() {
 
 			defer file.Close()
 
-			_, err = file.WriteString(fmt.Sprintf("package day%d\nimport (\n\n)\n\ntype Day%d struct {\n}\n\nfunc (d Day%d) Task1(input string) interface{} {\n    return input\n}\n\nfunc (d Day%d) Task2(input string) interface{} {\n	return input\n}\n", i, i, i, i))
+			_, err = file.WriteString(fmt.Sprintf("package day%d\n\nimport (\n\t// strconv\n\n\tu \"github.com/zaviermiller/advent-of-code-2020/util\"\n)\n\ntype Day%d struct {\n}\n\nfunc (d Day%d) Task1(input string) string {\n\treturn input\n}\n\nfunc (d Day%d) Task2(input string) string {\n	return input\n}\n", i, i, i, i))
 			check(err)
 
 			fmt.Println(fmt.Sprintf("\nGenerated day%d\n",i))

@@ -8,7 +8,7 @@ import (
 type Day3 struct {
 }
 
-func (d Day3) Task1(input string) interface{} {
+func (d Day3) Task1(input string) string {
 	inpArr := u.InputToSlice(input)
 	lineLength := len(inpArr[0])
 	currentX := 0
@@ -26,7 +26,7 @@ func (d Day3) Task1(input string) interface{} {
     return strconv.Itoa(treeCounter)
 }
 
-func (d Day3) Task2(input string) interface{} {
+func (d Day3) Task2(input string) string {
 	inpArr := u.InputToSlice(input)
 
 	t1 := treesFromSlope(inpArr, 1, 1)
