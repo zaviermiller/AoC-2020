@@ -21,6 +21,7 @@ import (
 	"github.com/zaviermiller/advent-of-code-2020/day5"
 	"github.com/zaviermiller/advent-of-code-2020/day6"
 	"github.com/zaviermiller/advent-of-code-2020/day7"
+	"github.com/zaviermiller/advent-of-code-2020/day8"
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 
 	"github.com/joho/godotenv"
@@ -37,7 +38,7 @@ var sessionCookie string
 func main() {
 	var DAYS []Day
 	// AUTO GENERATED -- day_struct
-	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{}, &day6.Day6{}, &day7.Day7{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{}, &day6.Day6{}, &day7.Day7{}, &day8.Day8{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	// inputFlag := flag.String("inp", "", "custom input to tasks")
 	flag.Parse()
