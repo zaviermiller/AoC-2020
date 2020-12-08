@@ -1,4 +1,5 @@
 package day3
+
 import (
 	"strconv"
 
@@ -8,43 +9,19 @@ import (
 type Day3 struct {
 }
 
-func (d Day3) Task1(input string) string {
-	inpArr := u.InputToSlice(input)
-	lineLength := len(inpArr[0])
+func (d Day3) Task1() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day3/input.txt")
+
+    return strconv.Itoa(treesFromSlope(input, 3, 1))
+}
+
+func treesFromSlope(input []string, right int, down int) int {
+	lineLength := len(input[0])
 	currentX := 0
 	treeCounter := 0
 
-	for _, line := range inpArr {
-		if line[currentX] == '#' {
-			treeCounter += 1
-		}
-
-		currentX += 3
-		if currentX >= lineLength { currentX -= lineLength }
-	}
-	
-    return strconv.Itoa(treeCounter)
-}
-
-func (d Day3) Task2(input string) string {
-	inpArr := u.InputToSlice(input)
-
-	t1 := treesFromSlope(inpArr, 1, 1)
-	t2 := treesFromSlope(inpArr, 3, 1)
-	t3 := treesFromSlope(inpArr, 5, 1)
-	t4 := treesFromSlope(inpArr, 7, 1)
-	t5 := treesFromSlope(inpArr, 1, 2)
-
-	return strconv.Itoa(t1 * t2 * t3 * t4 * t5)
-}
-
-func treesFromSlope(inpArr []string, right int, down int) int {
-	lineLength := len(inpArr[0])
-	currentX := 0
-	treeCounter := 0
-
-	for i := 0; i < len(inpArr); i += down {
-		if inpArr[i][currentX] == '#' {
+	for i := 0; i < len(input); i += down {
+		if input[i][currentX] == '#' {
 			treeCounter += 1
 		}
 
@@ -56,4 +33,15 @@ func treesFromSlope(inpArr []string, right int, down int) int {
 }
 
 
-// went for speed, got sub 2000
+
+func (d Day3) Task2() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day3/input.txt")
+
+	t1 := treesFromSlope(input, 1, 1)
+	t2 := treesFromSlope(input, 3, 1)
+	t3 := treesFromSlope(input, 5, 1)
+	t4 := treesFromSlope(input, 7, 1)
+	t5 := treesFromSlope(input, 1, 2)
+
+	return strconv.Itoa(t1 * t2 * t3 * t4 * t5)
+}

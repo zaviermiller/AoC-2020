@@ -3,7 +3,6 @@ package day7
 import (
 	"strconv"
 	"strings"
-	// "fmt"
 
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 )
@@ -16,10 +15,10 @@ type Bag struct {
 	Children map[string]int
 }
 
-func (d Day7) Task1(input string) string {
-	inpArr := u.InputToSlice(input)
+func (d Day7) Task1() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day7/input.txt")
 	// parse input
-	bags := parseInput(inpArr)
+	bags := parseInput(input)
 
 	knownContains := []string {}
 	goodBags := 0
@@ -30,9 +29,7 @@ func (d Day7) Task1(input string) string {
 			// fmt.Println(bag.Desc, knownContains)
 		}
 	}
-	// return baseBag
 	return strconv.Itoa(goodBags)
-
 }
 
 func recursivelyTestBag(bag *Bag, bags map[string]*Bag, knowns *[]string) bool {
@@ -102,10 +99,10 @@ func parseInput(inpArr []string) map[string]*Bag {
 	return bags
 }
 
-func (d Day7) Task2(input string) string {
-	inpArr := u.InputToSlice(input)
+func (d Day7) Task2() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day7/input.txt")
 
-	bags := parseInput(inpArr)
+	bags := parseInput(input)
 	
 	return strconv.Itoa(recursiveCountChildren(bags["shiny gold"], bags))
 }

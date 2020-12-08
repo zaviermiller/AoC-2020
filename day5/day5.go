@@ -3,7 +3,6 @@ package day5
 import (
 	"strconv"
 	"math"
-	// "fmt"
 
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 )
@@ -11,11 +10,11 @@ import (
 type Day5 struct {
 }
 
-func (d Day5) Task1(input string) string {
-	inpArr := u.InputToSlice(input)
+func (d Day5) Task1() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day5/input.txt")
 	highestId := 0
 
-	for _, item := range inpArr {
+	for _, item := range input {
 		row := 0
 		col := 0
 
@@ -34,15 +33,16 @@ func (d Day5) Task1(input string) string {
 	return strconv.Itoa(highestId)
 }
 
+// WE NEED GENERICS
 func intPower(x int, y int) int {
 	return int(math.Pow(float64(x), float64(y)))
 }
 
-func (d Day5) Task2(input string) string {
-	inpArr := u.InputToSlice(input)
+func (d Day5) Task2() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day5/input.txt")
 	var strs [128][8]string
 
-	for _, item := range inpArr {
+	for _, item := range input {
 		row := 0
 		col := 0
 

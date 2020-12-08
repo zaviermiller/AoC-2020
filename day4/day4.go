@@ -1,8 +1,8 @@
 package day4
+
 import (
-	"strings"
 	"strconv"
-	// "fmt"
+	"strings"
 
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 )
@@ -10,7 +10,8 @@ import (
 type Day4 struct {
 }
 
-func (d Day4) Task1(input string) string {
+func (d Day4) Task1() string {
+	input, _ := u.InputStringFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day4/input.txt")
 	inpArr := u.BatchInputTo2DSlice(input)
 	validCount := 0
 
@@ -40,6 +41,35 @@ func containsAndRemove(s []string, e string) []string {
         }
     }
     return s
+}
+
+func (d Day4) Task2() string {
+	input, _ := u.InputStringFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day4/input.txt")
+	inpArr := u.BatchInputTo2DSlice(input)
+	validCount := 0
+
+	for _, passport := range inpArr {
+		unmetReqs := []string {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
+		validityCount := 0
+		for _, item := range passport {
+			temp := strings.Split(item, ":")
+			desc := temp[0]
+			val := temp[1]
+
+			unmetReqs = containsAndRemove(unmetReqs, desc)
+			// fmt.Println(desc, val, checkValidity(val, desc))
+			if checkValidity(val, desc) {
+				validityCount += 1
+			}
+		}
+		// fmt.Println(validityCount)
+		if len(unmetReqs) == 0 && validityCount == 7{
+			validCount += 1
+		}
+
+	}
+
+	return strconv.Itoa(validCount)
 }
 
 func checkValidity(val string, desc string) bool {
@@ -117,32 +147,4 @@ func checkValidity(val string, desc string) bool {
 		return false
 	}
 	return false
-}
-
-func (d Day4) Task2(input string) string {
-	inpArr := u.BatchInputTo2DSlice(input)
-	validCount := 0
-
-	for _, passport := range inpArr {
-		unmetReqs := []string {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
-		validityCount := 0
-		for _, item := range passport {
-			temp := strings.Split(item, ":")
-			desc := temp[0]
-			val := temp[1]
-
-			unmetReqs = containsAndRemove(unmetReqs, desc)
-			// fmt.Println(desc, val, checkValidity(val, desc))
-			if checkValidity(val, desc) {
-				validityCount += 1
-			}
-		}
-		// fmt.Println(validityCount)
-		if len(unmetReqs) == 0 && validityCount == 7{
-			validCount += 1
-		}
-
-	}
-
-	return strconv.Itoa(validCount)
 }

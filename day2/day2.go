@@ -1,20 +1,19 @@
 package day2
-import (
-    "strings"
-    "strconv"
-    // "fmt"
 
-    u "github.com/zaviermiller/advent-of-code-2020/util"
+import (
+	"strconv"
+	"strings"
+
+	u "github.com/zaviermiller/advent-of-code-2020/util"
 )
 
 type Day2 struct {
 }
 
-func (d Day2) Task1(input string) string {
-    inpArr := u.InputToSlice(input)
-    // newArr := []string{"1-3 a: abcde","1-3 b: cdefg", "2-9 c: ccccccccc"}
-    counter := 0
-    for _, item := range inpArr {
+func (d Day2) Task1() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day2/input.txt")
+	counter := 0
+    for _, item := range input {
         stringArr := strings.SplitN(item, "-", 2)
         firstVal, _ := strconv.Atoi(stringArr[0])
         theRest := stringArr[1]
@@ -49,11 +48,11 @@ func checkValidity(num1 int, num2 int, search rune, password string) bool {
     return false
 }
 
-func (d Day2) Task2(input string) string {
-    inpArr := u.InputToSlice(input)
-    counter := 0
+func (d Day2) Task2() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day2/input.txt")
+	counter := 0
 
-    for _, item := range inpArr {
+    for _, item := range input {
         stringArr := strings.SplitN(item, "-", 2)
         firstVal, _ := strconv.Atoi(stringArr[0])
         theRest := stringArr[1]

@@ -1,8 +1,8 @@
 package day1
 
 import (
-	// "fmt"
 	"strconv"
+	"fmt"
 
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 )
@@ -10,12 +10,15 @@ import (
 type Day1 struct {
 }
 
-func (d Day1) Task1(input string) string {
-	inpArr := u.InputToSlice(input)
-	intArr := make([]int, len(inpArr))
-	for i, item := range inpArr {
+func (d Day1) Task1() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day1/input.txt")
+	intArr := make([]int, len(input))
+	for i, item := range input {
+		fmt.Println(item)
 		intArr[i], _ = strconv.Atoi(item)
 	}
+
+	fmt.Println(intArr)
 
 	solution := strconv.Itoa(findSum2020(intArr))
 	
@@ -34,11 +37,10 @@ func findSum2020(arr []int) int {
 	return -1
 }
 
-// woah i can even brute force this one :o
-func (d Day1) Task2(input string) string {
-	inpArr := u.InputToSlice(input)
-	intArr := make([]int, len(inpArr))
-	for i, item := range inpArr {
+func (d Day1) Task2() string {
+	input, _ := u.InputFromFile("/home/zavier/go/src/github.com/zaviermiller/advent-of-code-2020/day1/input.txt")
+	intArr := make([]int, len(input))
+	for i, item := range input {
 		intArr[i], _ = strconv.Atoi(item)
 	}
 
