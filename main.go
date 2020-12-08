@@ -18,6 +18,7 @@ import (
 	"github.com/zaviermiller/advent-of-code-2020/day4"
 	"github.com/zaviermiller/advent-of-code-2020/day5"
 	"github.com/zaviermiller/advent-of-code-2020/day6"
+	"github.com/zaviermiller/advent-of-code-2020/day7"
 	u "github.com/zaviermiller/advent-of-code-2020/util"
 
 	"github.com/joho/godotenv"
@@ -33,7 +34,7 @@ var loc, _ = time.LoadLocation("America/New_York")
 func main() {
 	var DAYS []Day
 	// AUTO GENERATED -- day_struct
-	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{}, &day6.Day6{})
+	DAYS = append(DAYS, &day1.Day1{}, &day2.Day2{}, &day3.Day3{}, &day4.Day4{}, &day5.Day5{}, &day6.Day6{}, &day7.Day7{})
 	dayFlag := flag.Int("d", 0, "day of advent to run")
 	inputFlag := flag.String("inp", "", "custom input to tasks")
 	flag.Parse()
@@ -58,8 +59,8 @@ func main() {
 	
 	dayObj := DAYS[*dayFlag - 1]
 
-	fmt.Println("TASK 1 ANSWER:\n\033[1m" + dayObj.Task1(input))
-	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[1m" + dayObj.Task2(input) + "\033[0m\n")
+	fmt.Println("\033[0mTASK 1 ANSWER:\n\033[31;1m" + dayObj.Task1(input))
+	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[32;1m" + dayObj.Task2(input) + "\033[0m\n")
 	
 }
 

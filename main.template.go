@@ -51,8 +51,8 @@ func main() {
 	
 	dayObj := DAYS[*dayFlag - 1]
 
-	fmt.Println("TASK 1 ANSWER:\n\033[1m" + dayObj.Task1(input))
-	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[1m" + dayObj.Task2(input) + "\033[0m\n")
+	fmt.Println("\033[0mTASK 1 ANSWER:\n\033[31;1m" + dayObj.Task1(input))
+	fmt.Println("\033[0mTASK 2 ANSWER:\n\033[32;1m" + dayObj.Task2(input) + "\033[0m\n")
 	
 }
 
